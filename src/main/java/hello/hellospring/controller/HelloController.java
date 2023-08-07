@@ -4,6 +4,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller //controller는 항상 어노테이션 해줘야 한다
 public class HelloController {
@@ -25,7 +26,30 @@ public class HelloController {
 
 
     return "hello-template"; //static폴더 templates 폴더 안에 새로 파일 만들어서 파라미터 web꾸미기
+    }
 
+    @GetMapping("hello-string")
+    @ResponseBody //http의 response body부분에 return값 직접 넣겠다는 뜻
+    public String helloString(@RequestParam("name") String name){
+        return "hello "+name;
+    }
 
+    @GetMapping("hello-api")
+    @ResponseBody //json반환이 기본
+    public Hello helloApi(@RequestParam("name") String name){
+        Hello hello = new Hello();
+        hello.setName(name); //private인 name 접근할 수 있게 set으로 설정
+        return hello;
+    }
+    static class Hello{
+        private String name;
+
+        public String getName() {
+            return name;
+        }
+
+        public void setName(String name) {
+            this.name = name;
+        }
     }
 }
