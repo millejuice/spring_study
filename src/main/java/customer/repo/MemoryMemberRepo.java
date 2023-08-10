@@ -28,6 +28,10 @@ public class MemoryMemberRepo implements MemberRepo {
                 .findAny();
     }
 
+    public void clearStore(){
+        store.clear();
+    }
+
     @Override
     public List<Member> findAll() {
         return new ArrayList<>(store.values()); //member 반환 됨
