@@ -8,6 +8,7 @@ import customer.repo.MemoryMemberRepo;
 import java.util.List;
 import java.util.Optional;
 
+//cmd + shift + t 로 간편하게 test 껍데기 만들수 있다
 public class MemberService {
     private final MemberRepo memberRepository = new MemoryMemberRepo();
 
