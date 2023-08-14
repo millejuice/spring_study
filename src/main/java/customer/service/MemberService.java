@@ -4,12 +4,16 @@ package customer.service;
 import customer.domain.Member;
 import customer.repo.MemberRepo;
 import customer.repo.MemoryMemberRepo;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
 
 //cmd + shift + t 로 간편하게 test 껍데기 만들수 있다
+@Service
 public class MemberService {
+    @Autowired
     private final MemberRepo memberRepository = new MemoryMemberRepo();
 
     //회원가입

@@ -1,7 +1,11 @@
 package customer.repo;
 import customer.domain.Member;
+import org.springframework.stereotype.Repository;
+
 import java.util.*;
 
+/** MemberRepo는 구현체*/
+@Repository
 public class MemoryMemberRepo implements MemberRepo {
 
     /** save기능에서 저장할 값 보관하는 변수 */
